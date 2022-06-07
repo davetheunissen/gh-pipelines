@@ -6,6 +6,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
+      REGION: australiaeast
       ENVIRONMENT: dev
     steps:
     - uses: actions/checkout@v2
@@ -15,6 +16,7 @@ jobs:
     - uses: azure/arm-deploy@v1
       with:
         scope: subscription
+        region: ${{ env.REGION }}
         deploymentName: ${{ github.run_number }}
         template: ./deploy/main.bicep
         parameters: environmentType=${{ env.ENVIRONMENT }}
