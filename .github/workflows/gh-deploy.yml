@@ -1,5 +1,5 @@
-name: deploy-repoman
-concurrency: repoman
+name: gh-deploy
+concurrency: gh-pipelines
 
 on:
   push:
