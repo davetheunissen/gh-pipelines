@@ -23,4 +23,3 @@ jobs:
         region: ${{ env.REGION }}
         deploymentName: ${{ github.run_number }}
         template: deploy/main.bicep
-        parameters: environmentType=${{ env.ENVIRONMENT }}
