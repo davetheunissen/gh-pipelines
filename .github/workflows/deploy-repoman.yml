@@ -2,12 +2,11 @@ name: deploy-repoman
 
 on: [workflow_dispatch]
 
-env:
-    ENVIRONMENT: dev
-
 jobs:
-  say-hello:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: dev
     steps:
     - uses: actions/checkout@v2
     - uses: azure/login@v1
@@ -15,6 +14,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
       with:
+        scope: subscription
         deploymentName: ${{ github.run_number }}
         template: ./deploy/main.bicep
         parameters: environmentType=${{ env.ENVIRONMENT }}
