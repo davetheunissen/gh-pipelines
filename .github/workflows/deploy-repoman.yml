@@ -14,8 +14,6 @@ jobs:
       ENVIRONMENT: dev
     steps:
     - uses: actions/checkout@v2
-      with:
-        path: repo
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -24,5 +22,5 @@ jobs:
         scope: subscription
         region: ${{ env.REGION }}
         deploymentName: ${{ github.run_number }}
-        template: ./deploy/main.bicep
+        template: deploy/main.bicep
         parameters: environmentType=${{ env.ENVIRONMENT }}
