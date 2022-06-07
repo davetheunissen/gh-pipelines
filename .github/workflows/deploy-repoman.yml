@@ -10,6 +10,8 @@ jobs:
       ENVIRONMENT: dev
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: repo
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
