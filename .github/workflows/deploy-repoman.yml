@@ -2,9 +2,19 @@ name: deploy-repoman
 
 on: [workflow_dispatch]
 
+env:
+    ENVIRONMENT: dev
+
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: 'placeholder step'
-        run: echo "Hello world!"
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        deploymentName: ${{ github.run_number }}
+        template: ./deploy/main.bicep
+        parameters: environmentType=${{ env.ENVIRONMENT }}
