@@ -18,8 +18,16 @@ In this post, I am going to demonstrate how to get up and running, deploying a b
 
 ## Setting up your project
 
-Clone your GitHub repository in v
-```git
+From the VSCode command line, clone your GitHub repository into a new directory. 
+
+```pwsh
 git clone https://github.com/davetheunissen/gh-pipelines.git
 ```
 
+Optionally you can run `code ./<your-repo-path> -r` to open a new instance of VSCode scoped to your repository folder.
+
+```pwsh
+code ./gh-pipelines -r
+```
+
+First up, create a directory in the repository for your workflow definitions. The semantic is to create a folder structure called `./github/workflows/`
