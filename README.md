@@ -30,4 +30,4 @@ Optionally you can run `code ./<your-repo-path> -r` to open a new instance of VS
 code ./gh-pipelines -r
 ```
 
-First up, create a directory in the repository for your workflow definitions. The semantic is to create a folder structure called `./github/workflows/`
+First up, create a directory in the repository for your workflow definitions. The convention is to create a directory structure `./github/workflows/`. GitHub identifies the YAML files at this location as workflow definitions. 
